@@ -1,0 +1,68 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Tests for login form">
+    <test name="Testing link 'Forgot password?' ">
+        <parameter name="linkForClick" value="Forgot password?"/>
+        <parameter name="redirectUrl" value="https://miro.com/recover/"/>
+        <classes>
+            <class name="ru.miro.test.tests.TestLinks" />
+        </classes>
+    </test>
+    <test name="Testing link 'Sign in with SSO' ">
+        <parameter name="linkForClick" value="Sign in with SSO"/>
+        <parameter name="redirectUrl" value="https://miro.com/sso/login/"/>
+        <classes>
+            <class name="ru.miro.test.tests.TestLinks" />
+        </classes>
+    </test>
+    <test name="Testing filds are not filled">
+        <parameter name="email" value=""/>
+        <parameter name="password" value=""/>
+        <parameter name="messageEmailEmpty" value="Please enter your email address."/>
+        <parameter name="messagePasswordEmpty" value="Please enter your password."/>
+        <classes>
+            <class name="ru.miro.test.tests.TestFildsAreNotFilled" />
+        </classes>
+    </test>
+    <test name="Password is not filled">
+        <parameter name="email" value="example@example.com"/>
+        <parameter name="password" value=""/>
+        <parameter name="messageEmailEmpty" value="Please enter your email address."/>
+        <parameter name="messagePasswordEmpty" value="Please enter your password."/>
+        <classes>
+            <class name="ru.miro.test.tests.TestFildsAreNotFilled" />
+        </classes>
+    </test>
+    <test name="Email is not filled">
+        <parameter name="email" value=""/>
+        <parameter name="password" value="12345678"/>
+        <parameter name="messageEmailEmpty" value="Please enter your email address."/>
+        <parameter name="messagePasswordEmpty" value="Please enter your password."/>
+        <classes>
+            <class name="ru.miro.test.tests.TestFildsAreNotFilled" />
+        </classes>
+    </test>
+    <test name="Incorrect email">
+        <parameter name="email" value="example@example.com"/>
+        <parameter name="password" value="12345678"/>
+        <parameter name="errorMessage" value="The email or password you entered is incorrect."/>
+        <classes>
+            <class name="ru.miro.test.tests.TestIncorrectEmailOrPassword" />
+        </classes>
+    </test>
+    <test name="Password is not set">
+        <parameter name="email" value="example2@example.com"/>
+        <parameter name="password" value="12345678"/>
+        <parameter name="errorMessage" value="You have not set a password for this account."/>
+        <classes>
+            <class name="ru.miro.test.tests.TestIncorrectEmailOrPassword" />
+        </classes>
+    </test>
+    <test name="Incorrect password">
+        <parameter name="email" value="example3@example.com"/>
+        <parameter name="password" value="12345678"/>
+        <parameter name="errorMessage" value="The email or password you entered is incorrect."/>
+        <classes>
+            <class name="ru.miro.test.tests.TestIncorrectEmailOrPassword" />
+        </classes>
+    </test>
+</suite>
